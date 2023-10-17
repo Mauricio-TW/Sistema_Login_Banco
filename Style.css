@@ -1,55 +1,16 @@
-.login-form {
-    background-color: #f9f9f9;
+ /* Adicione estilos personalizados aqui */
+ body {
+    background-color: #f8f9fa;
+}
+.container-login {
+    background-color: #343a40;
     padding: 20px;
-    border: 1px solid #e0e0e0;
-    border-radius: 5px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
-
-.login-form h2 {
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.login-form input[type="email"],
-.login-form input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-.login-form button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-}
-
-.login-form button:hover {
-    background-color: #0056b3;
-}
-
-.forgot-password {
-    margin-top: 15px;
-    color: #007bff;
-}
-
-.welcome-content {
-    background-color: #007bff;
-    color: #fff;
+.container-welcome {
+    background-color: whitesmoke;
     padding: 20px;
-    border: 1px solid #0056b3;
-    text-align: center;
-    border-radius: 5px;
-}
-
-.welcome-content h2 {
-    margin-bottom: 20px;
-}
-
-.btn-success {
-    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
