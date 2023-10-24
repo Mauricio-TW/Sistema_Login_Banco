@@ -39,6 +39,9 @@ user-description {
 .btn-group {
     text-align: center;
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .favorite-users {
     text-align: center;
@@ -52,3 +55,4 @@ user-description {
 .footer-buttons button {
     margin-right: 10px;
 }
+
