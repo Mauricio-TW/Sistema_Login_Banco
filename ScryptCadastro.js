@@ -10,8 +10,8 @@ document.getElementById('cadastro-form').addEventListener('submit', function (ev
     const erroEmail = document.getElementById('erro-email');
 
     // Validaçao do Telefone
-    if (telefone.length < 15) {
-        erroTelefone.innerText = 'O telefone deve ter pelo menos 15 caracteres.';
+    if (telefone.length < 13) {
+        erroTelefone.innerText = 'O telefone deve ter pelo menos 13 caracteres.';
         event.preventDefault();
     } else {
         erroTelefone.innerText = '';
