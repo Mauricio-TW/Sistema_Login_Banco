@@ -37,40 +37,62 @@
             </div>
         
      <!--Conteudo-->
+     <?php
+      //importação dos dados do BD no mysql
+        include("conexao.php");
+      //Valores digitados na interface(index.HTML)
+        $nome     = $_POST["nome"];
+        $sobrenome= $_POST["sobrenome"];
+        $telefone = $_POST["telefone"];
+        $email    = $_POST["email"];
+        $curso    = $_POST["curso"];
+        $senha    = $_POST["senha"];
+
+      //query do sql
+        $sql = mysqli_query($banco,"insert into cadastro values(null,'$nome', '$sobrenome', '$telefone', '$email', '$curso', '$senha');");
+          if ($sql) {
+                    echo "Contato cadastrado com sucesso.<br>";
+                  }
+          else{
+                    echo "Não foi possivel cadastrar.<br>Causa: ".mysqli_error($banco);
+              }
+              mysqli_close($banco);
+      ?>
+      
      <div class="row justify-content-center">
       <div class="col-md-6">
           <h2>Cadastro</h2>
-          <form id="cadastro-form">
+          <form id="cadastro-form" action="cadastro.php" method="post">
               <div class="mb-3">
                   <label for="nome" class="form-label">Nome</label>
-                  <input type="text" class="form-control" id="nome" required>
+                  <input name="nome" type="text" class="form-control" id="nome" required>
               </div>
               <div class="mb-3">
                   <label for="sobrenome" class="form-label">Sobrenome</label>
-                  <input type="text" class="form-control" id="sobrenome" required>
+                  <input name="sobrenome" type="text" class="form-control" id="sobrenome" required>
               </div>
               <div class="mb-3">
                 <label for="telefone" class="form-label">Telefone</label>
-                <input type="tel" class="form-control" id="telefone">
+                <input name="telefone" type="tel" class="form-control" id="telefone" required>
                 <span id="erro-telefone" class="text-danger"></span>
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" required>
+                <input name="email" type="email" class="form-control" id="email" required>
                 <span id="erro-email" class="text-danger"></span>
             </div>
             
               <div class="mb-3">
                   <label for="curso" class="form-label">Curso</label>
-                  <input type="text" class="form-control" id="curso">
+                  <input name="curso" type="text" class="form-control" id="curso" required>
               </div>
               <div class="mb-3">
                   <label for="senha" class="form-label">Senha</label>
-                  <input type="password" class="form-control" id="senha" required>
+                  <input name="senha" type="password" class="form-control" id="senha" required>
               </div>
               <div class="mb-3">
-                  <label for="confirma-senha" class="form-label">Confirmar Senha</label>
-                  <input type="password" class="form-control" id="confirma-senha" required>
+                  <label for="confirmaSenha" class="form-label">Confirmar Senha</label>
+                  <input name="confirmaSenha" type="password" class="form-control" id="confirma-senha" required>
               </div>
               <div class="form-check">
                 <input type="checkbox" class="form-check-input" id="termos" required>
