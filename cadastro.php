@@ -1,5 +1,5 @@
 <?php
-      //importação dos dados do BD no mysql
+
         include("conexao.php");
       //Valores digitados na interface(index.HTML)
         $nome     = $_POST["nome"];

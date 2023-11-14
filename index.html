@@ -39,14 +39,14 @@
       <div class="row d-flex justify-content-between">
             <div class="col-md-6 container-login">
                 <h2 style="color: white;">Login</h2>
-                <form>
+                <form action="login.php" method="post">
                     <div class="mb-3">
                         <label for="email" class="form-label" style="color: white;">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="Digite seu email" required>
+                        <input type="email" name="email" class="form-control" id="email" placeholder="Digite seu email" required>
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label" style="color: white;">Senha</label>
-                        <input type="password" class="form-control" id="password" placeholder="Digite sua senha" required>
+                        <input type="password" name="senha" class="form-control" id="password" placeholder="Digite sua senha" required>
                     </div>
                     <button type="submit" class="btn btn-danger">Entrar</button>
                 </form>
