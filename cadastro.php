@@ -1,7 +1,7 @@
 <?php
 
         include("conexao.php");
-      //Valores digitados na interface(index.HTML)
+      
         $nome     = $_POST["nome"];
         $sobrenome= $_POST["sobrenome"];
         $telefone = $_POST["telefone"];
@@ -9,14 +9,15 @@
         $curso    = $_POST["curso"];
         $senha    = $_POST["senha"];
 
-      //query do sql
+
         $sql = mysqli_query($banco,"insert into cadastro values(null,'$nome', '$sobrenome', '$telefone', '$email', '$curso', '$senha');");
           if ($sql) {
                     echo "Contato cadastrado com sucesso.<br>";
-                    echo"<META http-equiv='refresh' content='0,URL=index.html'>";
+                    echo"<META http-equiv='refresh' content='2,URL=index.html'>";
                   }
           else{
                     echo "Não foi possivel cadastrar.<br>Causa: ".mysqli_error($banco);
+                    echo"<META http-equiv='refresh' content='2,URL=novoCadastro.html'>";
               }
               mysqli_close($banco);
       ?>
