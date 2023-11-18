@@ -11,6 +11,7 @@
 </head>
 <body>
     <script src="Scrypt.js"></script>
+    <script src="ScryptEditarPerfil.js"></script>
     
     <!--Header-->
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -36,7 +37,50 @@
           </div>
       
       <!--Conteudo-->
-      
+      <form action="upload.php" method="post" enctype="multipart/form-data" class="upload-form">
+        <h4>Atualizar Imagem de Perfil</h4>
+        <div class="mb-3">
+            <label for="profileImage" class="form-label">Escolha uma imagem de perfil:</label>
+            <input type="file" class="form-control" id="profileImage" name="profileImage" accept="image/*" required>
+        </div>
+        <button type="submit" class="btn btn-danger">Upload de Imagem</button>
+    </form>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+          <h2>Editar Perfil</h2>
+          <form id="editar-perfil-form" action="atualizarPerfil.php" method="post">
+             <div class="mb-3">
+                  <label for="nome" class="form-label">Nome</label>
+                  <input name="nome" type="text" class="form-control" id="nome" value="" required>
+              </div>
+              <div class="mb-3">
+                  <label for="sobrenome" class="form-label">Sobrenome</label>
+                  <input name="sobrenome" type="text" class="form-control" id="sobrenome" value="" required>
+              </div>
+              <div class="mb-3">
+                  <label for="telefone" class="form-label">Telefone</label>
+                  <input name="telefone" type="tel" class="form-control" id="telefone" value="" required>
+              </div>
+              <div class="mb-3">
+                  <label for="curso" class="form-label">Curso</label>
+                  <input name="curso" type="text" class="form-control" id="curso" value="" required>
+              </div>
+              <div class="mb-3">
+                  <label for="senha" class="form-label">Senha</label>
+                  <input name="senha" type="password" class="form-control" id="senha" required>
+              </div>
+              <div class="mb-3">
+                  <label for="confirmaSenha" class="form-label">Confirmar Senha</label>
+                  <input name="confirmaSenha" type="password" class="form-control" id="confirma-senha" required>
+              </div>
+              <div class="buttonCadastro">
+                <button type="submit" class="btn btn-success mb-4">Atualizar Perfil</button>
+                <a href="inicialSistema.html" class="btn btn-danger mb-4">Cancelar</a>
+            </div>
+            <span id="erro-mensagem" class="text-danger"></span>
+        </form>
+    </div>
+</div>
 
     <!--Footer-->
     <footer class="bg-dark text-white text-center py-3 fixed-bottom">
