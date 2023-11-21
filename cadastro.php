@@ -13,11 +13,11 @@
         $sql = mysqli_query($banco,"insert into cadastro values(null,'$nome', '$sobrenome', '$telefone', '$email', '$curso', '$senha', '');");
           if ($sql) {
                     echo "Contato cadastrado com sucesso.<br>";
-                    //echo"<META http-equiv='refresh' content='2,URL=index.html'>";
+                    echo"<META http-equiv='refresh' content='2,URL=index.html'>";
                   }
           else{
                     echo "Não foi possivel cadastrar.<br>Causa: ".mysqli_error($banco);
-                    //echo"<META http-equiv='refresh' content='2,URL=novoCadastro.html'>";
+                    echo"<META http-equiv='refresh' content='2,URL=novoCadastro.html'>";
               }
               mysqli_close($banco);
       ?>
