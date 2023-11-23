@@ -41,7 +41,16 @@
         <div class="profile-info">
             <div class="user-name">Nome do Usuário</div>
             <div class="user-image-container">
-                <img src="/Imagens/userIcon.png" class="profile-image" alt="Profile Image">
+              <?php
+
+              include("conexao.php");
+
+                if (isset($imagem_base64)) {
+                  echo '<img src="data:image/jpeg;base64,' . $imagem_base64 . '" class="profile-image" alt="Profile Image">';
+              } else {
+                  echo '<img src="/Imagens/userIcon.png" class="profile-image" alt="Profile Image">';
+              }
+          ?>
             </div>
             <div class="user-description">Texto de informação do usuário</div>
         </div>

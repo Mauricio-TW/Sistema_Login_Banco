@@ -5,7 +5,6 @@ include("conexao.php");
 $nome = $_POST["nome"];
 $sobrenome = $_POST["sobrenome"];
 $telefone = $_POST["telefone"];
-//$email = $_POST["email"];
 $curso = $_POST["curso"];
 $senha = $_POST["senha"];
 
@@ -19,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    
         if ($sql) {
             echo "Perfil atualizado com sucesso.<br>";
-            //echo "<META http-equiv='refresh' content='10,URL=inicialSistema.html'>";
+            echo "<META http-equiv='refresh' content='3,URL=inicialSistema.html'>";
         } else {
             echo "Não foi possível atualizar o perfil.<br>Causa: " . mysqli_error($banco);
         }
