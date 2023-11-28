@@ -15,7 +15,7 @@
             
                 if ($email == $registro_email[0] && $senha == $registro_senha[0]) {
                     echo "Login bem-sucedido!";
-                    echo"<META http-equiv='refresh' content='0,URL=inicialSistema.html'>";
+                    echo"<META http-equiv='refresh' content='0,URL=inicialSistema.php'>";
                 } else {
                     echo "Usuário ou senha incorretos.";
                     echo"<META http-equiv='refresh' content='5,URL=index.html'>";

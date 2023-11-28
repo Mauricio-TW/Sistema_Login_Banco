@@ -41,6 +41,7 @@
         <div class="profile-info">
             <div class="user-name">Nome do Usuário</div>
             <div class="user-image-container">
+              
               <?php
 
               include("conexao.php");
