@@ -58,10 +58,10 @@
         
 
         <div class="btn-group">
-            <button class="btn btn-primary">Tema de Estudo</button>
-            <button class="btn btn-primary">Bate Papo</button>
-            <button class="btn btn-primary">Materiais</button>
-            <button class="btn btn-primary">Usuários</button>
+            <a href="temasEstudo.html" class="btn btn-primary">Temas de Estudo</a>
+            <a href="batePapo.html" class="btn btn-primary">Bate Papo</a>
+            <a href="materiais.html" class="btn btn-primary">Materiais</a>
+            <a href="usuarios.html" class="btn btn-primary">Usuarios</a>
         </div>
 
         <div class="favorite-users">
@@ -78,8 +78,8 @@
     <!--Botões -->
     <div class="footer-buttons">
       <a href="EditarPerfil.html" class="btn btn-primary">Editar Perfil</a>
-        <button class="btn btn-primary">Gerenciar Meus Contatos</button>
-        <button class="btn btn-danger">Sair</button>
+      <a href="gerenciarContatos.html" class="btn btn-primary">Gerenciair Contatos</a>
+        <a href="index.html" class="btn btn-danger">Sair</a>
     </div>
 
     <!--Footer-->
