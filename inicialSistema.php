@@ -37,10 +37,7 @@
           </div>
       
     <!--Conteudo-->
-    <div class="container">
-        <div class="profile-info">
-            <div class="user-name">Nome do Usuário</div>
-            <div class="user-image-container">
+
               
               <?php
 
@@ -58,7 +55,6 @@
         
 
         <div class="btn-group">
-            <a href="temasEstudo.html" class="btn btn-primary">Temas de Estudo</a>
             <a href="batePapo.html" class="btn btn-primary">Bate Papo</a>
             <a href="materiais.html" class="btn btn-primary">Materiais</a>
             <a href="usuarios.html" class="btn btn-primary">Usuarios</a>

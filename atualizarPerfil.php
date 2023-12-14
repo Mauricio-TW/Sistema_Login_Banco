@@ -13,23 +13,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    
     if (isset($_FILES["imagem"])) {
         $caminhoArquivo = $_FILES["imagem"]["name"];
-        echo "Caminho da imagem recebido: " . $caminhoArquivo;
-        $sql = mysqli_query($banco, "UPDATE usuarios SET nome='$nome', sobrenome='$sobrenome', telefone='$telefone', curso='$curso', senha='$senha', imagem_usuario='$caminhoArquivo' WHERE email='$email'");
-   
-        if ($sql) {
-            echo "Perfil atualizado com sucesso.<br>";
-            echo "<META http-equiv='refresh' content='3,URL=inicialSistema.html'>";
-        } else {
-            echo "Não foi possível atualizar o perfil.<br>Causa: " . mysqli_error($banco);
-        }
+        $email = mysqli_query($banco, "update cadastro set nome='$nome', sobrenome='$sobrenome', email='$email', telefone='$telefone', curso='$curso', img_perfil='assets/img/imgUsuers/$caminhoArquivo' where email='$email'");
         
-    }
-     
-    else {
-        echo "Erro: Nenhuma imagem foi enviada.";
+    } else {
+        echo "Nenhuma imagem foi enviada.";
     }
 } else {
-    echo "Erro: Método de requisição inválido.";
+    echo "Método de requisição inválido.";
 }
 
 mysqli_close($banco);
