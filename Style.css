@@ -1,4 +1,4 @@
- /* Adicione estilos personalizados aqui */
+ /* Estilização Geral*/
  body {
     background-color: #f8f9fa;
 }
@@ -20,3 +20,68 @@
 .buttonVoltar{
     margin-bottom: 10%;
 }
+
+/*Pagina Usuarios*/
+.container_card_usuairios-usuarios {
+    display: flex;
+    justify-content: center;
+    margin: 95px 0 0 0;
+}
+.div_cards-usuarios {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.card_usuarios-usuarios {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 0px 15px 0 15px;
+}
+.card_usuarios-usuarios img {
+    height: 280px;
+    width: 100%;
+}
+.img_nome_usuario {
+    width: 60%;
+    text-align: center;
+}
+.usuarios {
+    display: flex;
+    flex-direction: column;
+    margin: 50px 0 0 0;
+}
+.usuarios h3 {
+    text-align: center;
+}
+.img_usuarios {
+    display: flex;
+}
+.img_usuarios img {
+    border-radius: 5px;
+    margin: 0 5px 0 5px;
+    width: 120px;
+}
+
+/* Materiais*/
+.section_conteudo {
+    display: flex;
+    justify-content: center;
+    margin: 95px 0 0 0;
+}
+.grid-container_materias {
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+}
+
+.grid-item_materias {
+    border: none;
+    padding: 20px;
+    background-color: #ddd;
+    text-align: center;
+    font-size: 24px;
+    text-decoration: none;
+    color: black;
+}
+

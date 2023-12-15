@@ -1,3 +1,11 @@
+<?php
+session_start();
+include("conexao.php");
+
+$queryArquivo = mysqli_query($banco, "select titulo, arquivo, data_materia, id_cadastro_professor from materia;");
+$arquivoBd = mysqli_num_rows($queryArquivo);
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -37,6 +45,25 @@
             </div>
         
      <!--Conteudo-->
+     <section class="section_conteudo">
+        <div class="grid-container_materias">
+            <?php
+            for ($i = 0; $i < $arquivoBd; $i++) {
+                $arquivoBanco = mysqli_fetch_row($queryArquivo);
+
+                $queryProfessor = mysqli_query($banco, "select nome, sobrenome from cadastro where id_cadastro $arquivoBanco[3];");
+                $dadosProfessor = mysqli_fetch_row($queryProfessor);
+
+                //Converte  data
+                $data = implode("/",array_reverse(explode("-",$arquivoBanco[2])));
+
+                echo "<div class='grid-item_materias materias'> Prof: $dadosProfessor[0] $dadosProfessor[1] <br> Conteudo: <a href='$arquivoBanco[1]'> $arquivoBanco[0] </a> <br> $data </div>";
+            }
+            ?>
+
+        </div>
+    </section>
+    
      <div class="buttonVoltar">
       <a href="inicialSistema.php" class="btn btn-danger mb-4">Voltar</a>
     </div>

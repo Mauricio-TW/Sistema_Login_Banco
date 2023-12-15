@@ -1,3 +1,17 @@
+<?php
+
+session_start();
+include("conexao.php");
+
+$dados = $_SESSION['meusDados'];
+
+$query_dadosUsuarios = mysqli_query($banco, "select nome, sobrenome, email, img_perfil from cadastro_professor");
+$resultDadosLoginsBd = mysqli_num_rows($query_dadosUsuarios);
+
+mysqli_close($banco);
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -37,6 +51,19 @@
             </div>
         
      <!--Conteudo-->
+     <div class="container_card_usuairios-usuarios">
+        <div class="div_cards-usuarios">
+            <?php
+            for ($i = 0; $i < $resultDadosLoginsBd; $i++) {
+                $dadosLoginUsuarios = mysqli_fetch_row($query_dadosUsuarios);
+                if ($dados != $dadosLoginUsuarios[2]) {
+                    echo "<div class='card_usuarios-usuarios'><img src='$dadosLoginUsuarios[3]' alt='' ><p>Professor: $dadosLoginUsuarios[0] $dadosLoginUsuarios[1]</p><p>$dadosLoginUsuarios[2]</p></div>";
+                }
+            }
+            ?>
+        </div>
+    </div>
+
      <div class="buttonVoltar">
       <a href="inicialSistema.php" class="btn btn-danger mb-4">Voltar</a>
     </div>

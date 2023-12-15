@@ -1,3 +1,29 @@
+<?php
+  session_start();
+  include("conexao.php");
+
+  $dados = $_SESSION['meusDados'];
+
+  $imgUsuarioLogin = mysqli_query($banco, "select nome, imagem_usuario from cadastro where email='$dados';");
+  $resultImgLogin = mysqli_fetch_row($imgUsuarioLogin);
+
+  $nome_usuario = $resultImgLogin[0];
+  $_SESSION['nome_usuario'] = $nome_usuario;
+
+if ($resultImgLogin) {
+    $imagem_blob = $resultImgLogin[1];
+} else {
+    echo "Imagem não encontrada";
+}
+
+
+$imgBdLoginUsuarios = mysqli_query($banco, "select email, imagem_usuario from cadastro");
+$resultImgLoginsBd = mysqli_num_rows($imgBdLoginUsuarios);
+
+mysqli_close($banco);
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -37,36 +63,27 @@
           </div>
       
     <!--Conteudo-->
-
-              
-              <?php
-
-              include("conexao.php");
-
-                if (isset($imagem_base64)) {
-                  echo '<img src="data:image/jpeg;base64,' . $imagem_base64 . '" class="profile-image" alt="Profile Image">';
-              } else {
-                  echo '<img src="/Imagens/userIcon.png" class="profile-image" alt="Profile Image">';
-              }
-          ?>
-            </div>
-            <div class="user-description">Texto de informação do usuário</div>
-        </div>
+      <?php
+          echo "<img src='$imagem_blob' alt='' width='140px'>";
+       ?>
         
-
         <div class="btn-group">
             <a href="batePapo.html" class="btn btn-primary">Bate Papo</a>
-            <a href="materiais.html" class="btn btn-primary">Materiais</a>
-            <a href="usuarios.html" class="btn btn-primary">Usuarios</a>
+            <a href="materiais.php" class="btn btn-primary">Materiais</a>
+            <a href="usuarios.php" class="btn btn-primary">Usuarios</a>
         </div>
 
-        <div class="favorite-users">
-            <h4>Usuários Favoritos</h4>      
-            <div class="favorite-user-item">
-                <span>User 1</span>
-            </div>
-            <div class="favorite-user-item">
-                <span>User 2</span>
+        <div class="usuarios">
+            <h3>Usuários</h3>
+            <div class="img_usuarios">
+                <?php
+                for ($i = 0; $i < $resultImgLoginsBd; $i++) {
+                    $imgLoginUsuarios = mysqli_fetch_row($imgBdLoginUsuarios);
+                    if ($dados != $imgLoginUsuarios[0]) {
+                        echo "<img src='$imgLoginUsuarios[1]' alt='' >";
+                    }
+                }
+                ?>
             </div>
         </div>
     </div>
@@ -74,7 +91,7 @@
     <!--Botões -->
     <div class="footer-buttons">
       <a href="EditarPerfil.html" class="btn btn-primary">Editar Perfil</a>
-      <a href="gerenciarContatos.html" class="btn btn-primary">Gerenciair Contatos</a>
+      <a href="gerenciarConteudos.php" class="btn btn-primary">Gerenciair Conteudos</a>
         <a href="index.html" class="btn btn-danger">Sair</a>
     </div>
 
