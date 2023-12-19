@@ -1,25 +1,16 @@
 <?php
-// Iniciar Sessão
     session_start();
     include("conexao.php");
     
-   $email_login = $_SESSION['meusDados'];
+    $email_login = $_SESSION['meusDados'];
     
-   if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
-            if (isset($_FILES['arquivo'])) {
-            
-                $nomeArquivo = $_POST['nomeArquivo'];
-                
-            
-                $query_dadosUsuario_login = mysqli_query($banco, "select id_cadastro from cadastro where email='$email_login';");
-            
+            if (isset($_FILES['arquivo'])) {                
+                $nomeArquivo = $_POST['nomeArquivo'];               
+                $query_dadosUsuario_login = mysqli_query($banco, "select id_cadastro from cadastro where email='$email_login';");                
                 $dadosUsuario_login = mysqli_fetch_row($query_dadosUsuario_login);
-
-           
                 $caminhoArquivo = $_FILES['arquivo']['name'];
-         
                 $sql = mysqli_query($banco, "insert into materia values (null,'$nomeArquivo', 'assets/img/imgUsuers/$caminhoArquivo', NOW(), '$dadosUsuario_login[0]')");
 
                 if ($sql) { 
@@ -36,12 +27,10 @@
             echo "Erro: Método de requisição inválido.";
         }
     
-        $query_dadosUsuarioProfessor_login = mysqli_query($banco, "select id_cadastro from cadastro where email='$email_login';");
-      
-        $dadosUsuarioProfessor_login = mysqli_fetch_row($query_dadosUsuarioProfessor_login);
-    
+       
+        $query_dadosUsuarioProfessor_login = mysqli_query($banco, "select id_cadastro from cadastro where email='$email_login';");        
+        $dadosUsuarioProfessor_login = mysqli_fetch_row($query_dadosUsuarioProfessor_login);      
         $queryArquivoProfessor = mysqli_query($banco, "select titulo, arquivo, data_materia, id_cadastro from materia where id_cadastro='$dadosUsuarioProfessor_login[0]';");
-        
         $arquivoProfessorBd = mysqli_num_rows($queryArquivoProfessor);
 
     ?>
@@ -49,23 +38,24 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="Style.css">
-    <title>Sistema de Login</title>
-    <link rel="icon" href="Imagens/lamborghini logo1.png" type="Logo">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="Style.css">
+        <title>Sistema de Login</title>
+        <link rel="icon" href="/assets/img/imgSite/lamborghini logo1.png" type="Logo">
 </head>
+
 <body>
-    <script src="ScryptCadastro.js"></script>
-    <script src="Scrypt.js"></script>
+    <!-- Scrypt -->
+    <script src="/assets/JS/Scrypt.js"></script>
     
     <!--Header-->
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="index.html">
-            <img src="Imagens/lamborghini logo1.png" width="100" height="100" alt="Logo"></a>
+            <img src="/assets/img/imgSite/lamborghini logo1.png" width="100" height="100" alt="Logo"></a>
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
             <span class="navbar-toggler-icon"></span>
@@ -73,19 +63,12 @@
           <div class="collapse navbar-collapse" id="mynavbar">
             <ul class="navbar-nav me-auto">
             </ul>
-    
+
           </div>
         </div>
       </nav> 
 
-    <!-- Espaço entre o header conteudo -->
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 mt-4">
-            </div>
-        
-     <!--Conteudo-->
-     <section class="section_conteudo">
+        <section class="section_conteudo">
         <div class="cadastrar_materias">
             <form method="post" action="gerenciarConteudos.php" enctype="multipart/form-data">
                 <label class="espacamento_form" for="nomeArquivo_input">Nome do arquivo:</label>
@@ -100,31 +83,21 @@
     <section class="section_conteudo">
         <div class="grid-container_materias">
             <?php
-            for ($i = 0; $i < $arquivoProfessorBd; $i++) {
-                //pega os dados contido em cada linha
+            for ($i = 0; $i < $arquivoProfessorBd; $i++) {         
                 $arquivoProfessorBanco = mysqli_fetch_row($queryArquivoProfessor);
-
-                $query_dadosProfessorBanco = mysqli_query($banco, "select nome, sobrenome from cadastro_professor where $arquivoProfessorBanco[3];");
-                $dadosProfessorBanco = mysqli_fetch_row($query_dadosProfessorBanco);
-
-                // converter uma data vinda do MYSQL para o formato PT-BR
+                $query_dadosProfessorBanco = mysqli_query($banco, "select nome, sobrenome from cadastro where $arquivoProfessorBanco[3];");
+                $dadosProfessorBanco = mysqli_fetch_row($query_dadosProfessorBanco);                
                 $data = implode("/",array_reverse(explode("-",$arquivoProfessorBanco[2])));
 
-                //adiciona as materias na tela
                 echo "<div class='grid-item_materias materias'> Prof: $dadosProfessorBanco[0] $dadosProfessorBanco[1] <br> Conteudo:   <a href='$arquivoProfessorBanco[1]'> $arquivoProfessorBanco[0] </a> <br> $data </div>";
             }
             ?>
 
         </div>
     </section>
-     <div class="buttonVoltar">
-      <a href="inicialSistema.php" class="btn btn-danger mb-4">Voltar</a>
-    </div>
-    
-
- <!--Footer-->
-    <footer class="bg-dark text-white text-center py-3 fixed-bottom">
+        <!--Footer-->
+        <footer class="bg-dark text-white text-center py-3 fixed-bottom">
         <p>&copy; Mauricio AVA. Todos os direitos reservados.</p>
-  </footer>
+    </footer>
 </body>
 </html>

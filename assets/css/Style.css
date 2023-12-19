@@ -1,0 +1,357 @@
+body {
+    margin: 0;
+}
+
+.section_login {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 150px 0 0 0;
+}
+
+.div_login {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 50%;
+    border-radius: 25px;
+    background-color: rgb(1, 127, 201);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.botao {
+    padding: 5px 10px 5px 10px;
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+}
+
+.botao:hover {
+    background-color: rgb(34, 34, 34);
+}
+
+
+/* parte da esquerda */
+
+.div_login_esquerda {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10% 0 10% 0;
+}
+
+.formulario_login {
+    display: flex;
+    flex-direction: column;
+}
+
+.espacamento_form {
+    margin: 5px 0 5px 0;
+}
+
+.input_form {
+    width: 220px;
+    border-radius: 50px;
+    border: 1px solid black;
+}
+
+.div_botao_form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.formulario_login .recuperar_login {
+    color: black;
+    text-decoration: none;
+}
+
+.formulario_login .recuperar_login:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+
+/* parte da direita */
+
+.div_login_direita {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 8.5% 0 10% 0;
+}
+
+.div_conteudo_boasvinda {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 220px;
+    margin: 0 0 15px 0;
+}
+
+.div_conteudo_boasvinda .botao {
+    margin: 0 0 7px 0;
+}
+
+
+/* pagina cadastro */
+
+.section_cadastro {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 150px 0 0 0;
+}
+
+.div_cadastro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 22%;
+    background-color: rgb(1, 127, 201);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 25px;
+}
+
+.div_cadastro form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 5% 0 5% 0;
+}
+
+.input_form_cadastro {
+    border-radius: 50px;
+    border: 1px solid black;
+}
+
+.botao_login_flex {
+    margin: 20px 0 0 0;
+    width: 350px;
+    display: flex;
+    justify-content: start;
+}
+
+.checkbox_termos {
+    width: 200px;
+}
+
+.div_termos #concorda_termos {
+    vertical-align: top;
+    margin: 6px 0 0 0;
+}
+
+.div_botoes_form {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin: 15px 0 0 0;
+    flex-wrap: wrap;
+}
+
+
+/* index */
+
+.section_tela_inicial {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 85px 0 0 0;
+}
+
+.img_nome_usuario {
+    width: 60%;
+    text-align: center;
+}
+
+.abas {
+    width: 60%;
+    margin: 80px 0 0 0;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* Cria 3 colunas de largura igual */
+    gap: 5px;
+    /* Espaço entre os itens da grade */
+}
+
+.grid-container_2 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* Cria 3 colunas de largura igual */
+    gap: 5px;
+    /* Espaço entre os itens da grade */
+}
+
+.grid-item {
+    border: none;
+    padding: 20px;
+    background-color: rgb(3, 143, 224);
+    text-align: center;
+    font-size: 24px;
+    text-decoration: none;
+    color: black;
+}
+
+.usuarios {
+    display: flex;
+    flex-direction: column;
+    margin: 50px 0 0 0;
+}
+
+.usuarios h3 {
+    text-align: center;
+}
+
+.img_usuarios {
+    display: flex;
+}
+
+.img_usuarios img {
+    border-radius: 5px;
+    margin: 0 5px 0 5px;
+    width: 120px;
+}
+
+.opcoes a {
+    text-decoration: none;
+    color: black;
+}
+
+
+/* editar perfil */
+
+.section_conteudo {
+    display: flex;
+    justify-content: center;
+    margin: 95px 0 0 0;
+}
+
+.grid-container_materias {
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+}
+
+.grid-item_materias {
+    border: none;
+    padding: 20px;
+    background-color: #ddd;
+    text-align: center;
+    font-size: 24px;
+    text-decoration: none;
+    color: black;
+}
+
+
+/* pagina usuarios */
+
+.container_card_usuairios-usuarios {
+    display: flex;
+    justify-content: center;
+    margin: 95px 0 0 0;
+}
+
+.div_cards-usuarios {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card_usuarios-usuarios {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 0px 15px 0 15px;
+}
+
+.card_usuarios-usuarios img {
+    height: 280px;
+    width: 100%;
+}
+
+
+/* bate papo começa aqui */
+
+.section_batepapo-batepapo {
+    margin: 175px;
+    display: flex;
+    justify-content: center;
+}
+
+.div_batepapo_left {
+    width: 35%;
+    background-color: rgb(3, 143, 224);
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div_batepapo_left img {
+    width: 400px;
+    height: 360px;
+}
+
+.div_batepapo_right {
+    width: 45%;
+    padding: 0 0 0 15px;
+    height: 600px;
+}
+
+.div_batepapo_right #mensagem {
+    width: 200px;
+}
+
+.div_batepapo_right #botao_enviar {
+    width: 100px;
+}
+
+.campo_mensagens-batepapo {
+    width: 100%;
+    height: 85%;
+    overflow-y: scroll;
+}
+
+.digitar_enviar_mensagem-batepapo {
+    margin: 10px 0 0 0;
+}
+
+@media screen and (max-width: 1400px) {
+    .section_batepapo-batepapo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .div_batepapo_left {
+        width: 50%;
+        height: 400px;
+    }
+    .div_batepapo_right {
+        width: 50%;
+        padding: 0 0 0 0px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .section_batepapo-batepapo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .div_batepapo_left {
+        width: 307px;
+        height: 400px;
+    }
+    .div_batepapo_right {
+        width: 307px;
+        padding: 0 0 0 0px;
+    }
+}
